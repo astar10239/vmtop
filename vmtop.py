@@ -548,7 +548,7 @@ class VM:
             elif cmdline[i].startswith("-name"):
                 self.name = cmdline[i + 1]
             elif cmdline[i] == "-m":
-                self.mem_allocated = int(cmdline[i + 1])
+                self.mem_allocated = int(str(cmdline[i + 1]).replace('k', '').replace('size=', ''))
             elif cmdline[i] == "-smp":
                 self.total_vcpu_count = int(cmdline[i + 1].split(",")[0])
 
